@@ -1,0 +1,8 @@
+{
+    "com_port": "AUTO",
+    "telegram_token": "8924355880:AAF6H3bIpJJv7-qC0N9GBWj21Y_IkSqMLGA",
+    "telegram_chat_id": "7666392148",
+    "webcam_id": 0,
+    "use_simulator": false,
+    "camera_enabled": true
+}

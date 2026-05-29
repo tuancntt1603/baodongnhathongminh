@@ -1,0 +1,702 @@
+[
+    {
+        "id": 1779882989448,
+        "timestamp": "2026-05-27 18:56:29",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882987827,
+        "timestamp": "2026-05-27 18:56:27",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882986029,
+        "timestamp": "2026-05-27 18:56:26",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882985207,
+        "timestamp": "2026-05-27 18:56:25",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882981647,
+        "timestamp": "2026-05-27 18:56:21",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882933186,
+        "timestamp": "2026-05-27 18:55:33",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882931155,
+        "timestamp": "2026-05-27 18:55:31",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779882931.jpg"
+    },
+    {
+        "id": 1779882930907,
+        "timestamp": "2026-05-27 18:55:30",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882486009,
+        "timestamp": "2026-05-27 18:48:06",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882483155,
+        "timestamp": "2026-05-27 18:48:03",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779882483.jpg"
+    },
+    {
+        "id": 1779882480186,
+        "timestamp": "2026-05-27 18:48:00",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779882480.jpg"
+    },
+    {
+        "id": 1779882478791,
+        "timestamp": "2026-05-27 18:47:58",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779882477.jpg"
+    },
+    {
+        "id": 1779882477049,
+        "timestamp": "2026-05-27 18:47:57",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882456139,
+        "timestamp": "2026-05-27 18:47:36",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882453322,
+        "timestamp": "2026-05-27 18:47:33",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": null
+    },
+    {
+        "id": 1779882450524,
+        "timestamp": "2026-05-27 18:47:30",
+        "event": "Bật Camera giám sát",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882450354,
+        "timestamp": "2026-05-27 18:47:30",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": null
+    },
+    {
+        "id": 1779882447395,
+        "timestamp": "2026-05-27 18:47:27",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": null
+    },
+    {
+        "id": 1779882446867,
+        "timestamp": "2026-05-27 18:47:26",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779882426625,
+        "timestamp": "2026-05-27 18:47:06",
+        "event": "Khởi động hệ thống máy chủ an ninh",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881712931,
+        "timestamp": "2026-05-27 18:35:12",
+        "event": "Tắt Camera giám sát (Chế độ riêng tư)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881678670,
+        "timestamp": "2026-05-27 18:34:38",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881677286,
+        "timestamp": "2026-05-27 18:34:37",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881677.jpg"
+    },
+    {
+        "id": 1779881674377,
+        "timestamp": "2026-05-27 18:34:34",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881674.jpg"
+    },
+    {
+        "id": 1779881674205,
+        "timestamp": "2026-05-27 18:34:34",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881567316,
+        "timestamp": "2026-05-27 18:32:47",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881564815,
+        "timestamp": "2026-05-27 18:32:44",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881564.jpg"
+    },
+    {
+        "id": 1779881564640,
+        "timestamp": "2026-05-27 18:32:44",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881471254,
+        "timestamp": "2026-05-27 18:31:11",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881470310,
+        "timestamp": "2026-05-27 18:31:10",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881470.jpg"
+    },
+    {
+        "id": 1779881467369,
+        "timestamp": "2026-05-27 18:31:07",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881467.jpg"
+    },
+    {
+        "id": 1779881467188,
+        "timestamp": "2026-05-27 18:31:07",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881324734,
+        "timestamp": "2026-05-27 18:28:44",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881323541,
+        "timestamp": "2026-05-27 18:28:43",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881323.jpg"
+    },
+    {
+        "id": 1779881320638,
+        "timestamp": "2026-05-27 18:28:40",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881320.jpg"
+    },
+    {
+        "id": 1779881320439,
+        "timestamp": "2026-05-27 18:28:40",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881206434,
+        "timestamp": "2026-05-27 18:26:46",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881205915,
+        "timestamp": "2026-05-27 18:26:45",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881205.jpg"
+    },
+    {
+        "id": 1779881202990,
+        "timestamp": "2026-05-27 18:26:42",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881202.jpg"
+    },
+    {
+        "id": 1779881202772,
+        "timestamp": "2026-05-27 18:26:42",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881122436,
+        "timestamp": "2026-05-27 18:25:22",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881121709,
+        "timestamp": "2026-05-27 18:25:21",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881121.jpg"
+    },
+    {
+        "id": 1779881118802,
+        "timestamp": "2026-05-27 18:25:18",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881118.jpg"
+    },
+    {
+        "id": 1779881118586,
+        "timestamp": "2026-05-27 18:25:18",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881057297,
+        "timestamp": "2026-05-27 18:24:17",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881056014,
+        "timestamp": "2026-05-27 18:24:16",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881055.jpg"
+    },
+    {
+        "id": 1779881053105,
+        "timestamp": "2026-05-27 18:24:13",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881053.jpg"
+    },
+    {
+        "id": 1779881052890,
+        "timestamp": "2026-05-27 18:24:12",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779881037563,
+        "timestamp": "2026-05-27 18:23:57",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881037.jpg"
+    },
+    {
+        "id": 1779881037501,
+        "timestamp": "2026-05-27 18:23:57",
+        "event": "Tắt chế độ bảo vệ từ Telegram",
+        "sensor": "TELEGRAM",
+        "image_path": null
+    },
+    {
+        "id": 1779881034575,
+        "timestamp": "2026-05-27 18:23:54",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881034.jpg"
+    },
+    {
+        "id": 1779881031596,
+        "timestamp": "2026-05-27 18:23:51",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779881031.jpg"
+    },
+    {
+        "id": 1779881028617,
+        "timestamp": "2026-05-27 18:23:48",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880966080,
+        "timestamp": "2026-05-27 18:22:46",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880965751,
+        "timestamp": "2026-05-27 18:22:45",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880965.jpg"
+    },
+    {
+        "id": 1779880962820,
+        "timestamp": "2026-05-27 18:22:42",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880962.jpg"
+    },
+    {
+        "id": 1779880962625,
+        "timestamp": "2026-05-27 18:22:42",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880927490,
+        "timestamp": "2026-05-27 18:22:07",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880927126,
+        "timestamp": "2026-05-27 18:22:07",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880927.jpg"
+    },
+    {
+        "id": 1779880924230,
+        "timestamp": "2026-05-27 18:22:04",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880924.jpg"
+    },
+    {
+        "id": 1779880923978,
+        "timestamp": "2026-05-27 18:22:03",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880922395,
+        "timestamp": "2026-05-27 18:22:02",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880920226,
+        "timestamp": "2026-05-27 18:22:00",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880920.jpg"
+    },
+    {
+        "id": 1779880919937,
+        "timestamp": "2026-05-27 18:21:59",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880918936,
+        "timestamp": "2026-05-27 18:21:58",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880917160,
+        "timestamp": "2026-05-27 18:21:57",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880917.jpg"
+    },
+    {
+        "id": 1779880914251,
+        "timestamp": "2026-05-27 18:21:54",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880914.jpg"
+    },
+    {
+        "id": 1779880911222,
+        "timestamp": "2026-05-27 18:21:51",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880911.jpg"
+    },
+    {
+        "id": 1779880908148,
+        "timestamp": "2026-05-27 18:21:48",
+        "event": "Phát hiện chuyển động qua cảm biến PIR",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880908.jpg"
+    },
+    {
+        "id": 1779880851397,
+        "timestamp": "2026-05-27 18:20:51",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880845636,
+        "timestamp": "2026-05-27 18:20:45",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880844909,
+        "timestamp": "2026-05-27 18:20:44",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880844.jpg"
+    },
+    {
+        "id": 1779880843867,
+        "timestamp": "2026-05-27 18:20:43",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880843.jpg"
+    },
+    {
+        "id": 1779880842944,
+        "timestamp": "2026-05-27 18:20:42",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880842.jpg"
+    },
+    {
+        "id": 1779880841910,
+        "timestamp": "2026-05-27 18:20:41",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880841.jpg"
+    },
+    {
+        "id": 1779880840917,
+        "timestamp": "2026-05-27 18:20:40",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880840.jpg"
+    },
+    {
+        "id": 1779880839896,
+        "timestamp": "2026-05-27 18:20:39",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880839.jpg"
+    },
+    {
+        "id": 1779880839308,
+        "timestamp": "2026-05-27 18:20:39",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880839.jpg"
+    },
+    {
+        "id": 1779880838681,
+        "timestamp": "2026-05-27 18:20:38",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880838.jpg"
+    },
+    {
+        "id": 1779880838355,
+        "timestamp": "2026-05-27 18:20:38",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880838.jpg"
+    },
+    {
+        "id": 1779880838132,
+        "timestamp": "2026-05-27 18:20:38",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880836.jpg"
+    },
+    {
+        "id": 1779880767709,
+        "timestamp": "2026-05-27 18:19:27",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880757625,
+        "timestamp": "2026-05-27 18:19:17",
+        "event": "Khởi động hệ thống máy chủ an ninh",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880682884,
+        "timestamp": "2026-05-27 18:18:02",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880563116,
+        "timestamp": "2026-05-27 18:16:03",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880548369,
+        "timestamp": "2026-05-27 18:15:48",
+        "event": "Khởi động hệ thống máy chủ an ninh",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880513399,
+        "timestamp": "2026-05-27 18:15:13",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880507520,
+        "timestamp": "2026-05-27 18:15:07",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880507.jpg"
+    },
+    {
+        "id": 1779880507226,
+        "timestamp": "2026-05-27 18:15:07",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880507.jpg"
+    },
+    {
+        "id": 1779880507156,
+        "timestamp": "2026-05-27 18:15:07",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880507.jpg"
+    },
+    {
+        "id": 1779880496604,
+        "timestamp": "2026-05-27 18:14:56",
+        "event": "Kích hoạt chế độ bảo vệ (Armed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880480950,
+        "timestamp": "2026-05-27 18:14:40",
+        "event": "Tắt chế độ bảo vệ (Disarmed)",
+        "sensor": "SYSTEM",
+        "image_path": null
+    },
+    {
+        "id": 1779880480567,
+        "timestamp": "2026-05-27 18:14:40",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880480.jpg"
+    },
+    {
+        "id": 1779880479546,
+        "timestamp": "2026-05-27 18:14:39",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880479.jpg"
+    },
+    {
+        "id": 1779880478546,
+        "timestamp": "2026-05-27 18:14:38",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880478.jpg"
+    },
+    {
+        "id": 1779880478308,
+        "timestamp": "2026-05-27 18:14:38",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880478.jpg"
+    },
+    {
+        "id": 1779880477589,
+        "timestamp": "2026-05-27 18:14:37",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880477.jpg"
+    },
+    {
+        "id": 1779880476549,
+        "timestamp": "2026-05-27 18:14:36",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880476.jpg"
+    },
+    {
+        "id": 1779880475784,
+        "timestamp": "2026-05-27 18:14:35",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880475.jpg"
+    },
+    {
+        "id": 1779880475625,
+        "timestamp": "2026-05-27 18:14:35",
+        "event": "👤 PHÁT HIỆN KHUÔN MẶT KẺ XÂM NHẬP!",
+        "sensor": "PIR",
+        "image_path": "/static/captures/intrusion_1779880475.jpg"
+    }
+]

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHome AI - Hệ Thống Báo Động Đột Nhập</title>
+    <meta name="description" content="Hệ thống báo động đột nhập thông minh kết hợp cảm biến PIR, cửa từ và webcam laptop, tích hợp cảnh báo Telegram và điều khiển từ xa.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="glass-bg-container">
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>SAFEHOME <span>AI</span></h1>
+                    <p>HỆ THỐNG AN NINH THÔNG MINH</p>
+                </div>
+            </div>
+            <div class="header-status">
+                <div class="status-badge" id="connectionBadge">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="connectionText">Đang kết nối...</span>
+                </div>
+                <button class="settings-btn" id="openSettingsBtn" title="Cài đặt hệ thống">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="dashboard-grid">
+            
+            <!-- LEFT PANEL: ALARM STATE & LIVE CAMERA -->
+            <div class="panel-column">
+                
+                <!-- SECURITY CONTROL STATE CARD -->
+                <section class="glass-card security-card" id="securityStateCard">
+                    <div class="card-header">
+                        <h2>Chế Độ An Ninh</h2>
+                        <span class="pulse-ring" id="guardPulse"></span>
+                    </div>
+                    
+                    <div class="security-status-display">
+                        <div class="status-icon-wrapper" id="mainStatusIcon">
+                            <!-- Shield Icon -->
+                            <svg class="icon-safe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <div class="status-texts">
+                            <h3 id="securityStatusTitle">HỆ THỐNG VÔ HIỆU HÓA</h3>
+                            <p id="securityStatusDesc">Bảo vệ đang tắt. Các cảm biến không kích hoạt báo động.</p>
+                        </div>
+                    </div>
+
+                    <div class="control-actions">
+                        <button class="btn btn-primary btn-arm" id="armBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            KÍCH HOẠT HỆ THỐNG
+                        </button>
+                        <button class="btn btn-danger btn-disarm hidden" id="disarmBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+                            </svg>
+                            TẮT BÁO ĐỘNG / VÔ HIỆU HÓA
+                        </button>
+                    </div>
+                </section>
+
+                <!-- REAL-TIME SENSORS CARD -->
+                <section class="glass-card sensors-card">
+                    <div class="card-header">
+                        <h2>Trạng Thái Cảm Biến</h2>
+                    </div>
+                    <div class="sensors-list">
+                        <!-- PIR Motion Sensor -->
+                        <div class="sensor-item" id="sensorPir">
+                            <div class="sensor-info">
+                                <div class="sensor-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <circle cx="12" cy="12" r="4"/>
+                                        <line x1="12" y1="2" x2="12" y2="4"/>
+                                        <line x1="12" y1="20" x2="12" y2="22"/>
+                                        <line x1="2" y1="12" x2="4" y2="12"/>
+                                        <line x1="20" y1="12" x2="22" y2="12"/>
+                                    </svg>
+                                </div>
+                                <div class="sensor-meta">
+                                    <h3>Cảm biến chuyển động PIR</h3>
+                                    <p>Phòng khách / Lối đi chính</p>
+                                </div>
+                            </div>
+                            <span class="badge" id="badgePir">Bình thường</span>
+                        </div>
+
+                        <!-- Door Contact Sensor -->
+                        <div class="sensor-item" id="sensorDoor">
+                            <div class="sensor-info">
+                                <div class="sensor-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9 22 9 12 15 12 15 22"/>
+                                    </svg>
+                                </div>
+                                <div class="sensor-meta">
+                                    <h3>Cảm biến cửa từ</h3>
+                                    <p>Cửa ra vào chính</p>
+                                </div>
+                            </div>
+                            <span class="badge" id="badgeDoor">Đóng</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SIMULATOR CONTROL CARD (Only active in Simulation Mode) -->
+                <section class="glass-card simulator-card hidden" id="simulatorPanel">
+                    <div class="card-header">
+                        <h2>Bộ Giả Lập Thiết Bị</h2>
+                        <span class="sim-pill">Simulating</span>
+                    </div>
+                    <p class="sim-desc">Nhấn giữ hoặc nhấp chọn để mô phỏng tác động cảm biến vật lý</p>
+                    <div class="simulator-buttons">
+                        <button class="btn btn-secondary sim-sensor-btn" id="simPirBtn">
+                            🚶 Chuyển động (PIR)
+                        </button>
+                        <button class="btn btn-secondary sim-sensor-btn" id="simDoorBtn">
+                            🚪 Mở cửa (Cửa từ)
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT PANEL: WEBCAM MONITOR & LOGS -->
+            <div class="panel-column">
+                
+                <!-- LIVE MONITOR -->
+                <section class="glass-card monitor-card">
+                    <div class="card-header">
+                        <h2>Camera Giám Sát</h2>
+                        <span class="status-indicator-live" id="cameraStatus">LIVE</span>
+                    </div>
+                    <div class="camera-screen">
+                        <!-- We use an image tag to render the multipart boundary stream -->
+                        <img id="liveFeed" src="/api/video_feed" alt="Live Security Feed" onerror="handleCameraError()">
+                        <div class="camera-fallback hidden" id="cameraFallback">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                                <line x1="1" y1="1" x2="23" y2="23"/>
+                            </svg>
+                            <p>Không có tín hiệu Camera</p>
+                            <span>Kiểm tra webcam_id trong cài đặt</span>
+                        </div>
+                    </div>
+                    <div class="camera-controls" style="display: flex; justify-content: space-between; width: 100%;">
+                        <button class="btn btn-secondary" id="toggleCameraBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            <span>Tắt Camera</span>
+                        </button>
+                        <button class="btn btn-secondary" id="captureTestBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                            Chụp Thử
+                        </button>
+                    </div>
+                </section>
+
+                <!-- HISTORY LOGS & IMAGES -->
+                <section class="glass-card logs-card">
+                    <div class="card-header">
+                        <h2>Nhật Ký Xâm Nhập</h2>
+                        <button class="clear-btn" id="clearHistoryBtn" title="Xóa nhật ký">Clear</button>
+                    </div>
+                    <div class="logs-container" id="logsList">
+                        <div class="log-empty">Chưa ghi nhận sự kiện nào.</div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SETTINGS DRAWER MODAL -->
+    <div class="modal-overlay hidden" id="settingsModal">
+        <div class="glass-modal settings-modal">
+            <div class="modal-header">
+                <h2>Cấu Hình Hệ Thống</h2>
+                <button class="close-btn" id="closeSettingsBtn">&times;</button>
+            </div>
+            <form id="settingsForm" class="settings-form">
+                <div class="form-group">
+                    <label for="comPort">Cổng COM Arduino/ESP8266</label>
+                    <div class="input-helper-group">
+                        <input type="text" id="comPort" name="com_port" placeholder="Ví dụ: COM3 hoặc AUTO">
+                    </div>
+                    <small>Chọn "AUTO" để tự động dò tìm cổng kết nối.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="webcamId">ID Webcam Laptop</label>
+                    <input type="number" id="webcamId" name="webcam_id" min="0" max="5" value="0">
+                    <small>Thường là 0 cho camera mặc định của laptop.</small>
+                </div>
+
+                <div class="form-group-checkbox">
+                    <input type="checkbox" id="useSimulator" name="use_simulator">
+                    <label for="useSimulator">Chế độ giả lập (Không cần phần cứng)</label>
+                </div>
+
+                <div class="divider">Cấu hình Cảnh báo Telegram</div>
+
+                <div class="form-group">
+                    <label for="telegramToken">Telegram Bot Token</label>
+                    <input type="password" id="telegramToken" name="telegram_token" placeholder="Nhập Token của Bot Telegram">
+                    <small>Được cung cấp bởi @BotFather khi tạo bot.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telegramChatId">Telegram Chat ID</label>
+                    <input type="text" id="telegramChatId" name="telegram_chat_id" placeholder="Nhập Chat ID người nhận">
+                    <small>Mã số chat của bạn (sử dụng @userinfobot để lấy ID).</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="testTelegramBtn">Gửi Thử Tin Nhắn</button>
+                    <button type="submit" class="btn btn-primary">Lưu Cài Đặt</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- IMAGE LIGHTBOX MODAL -->
+    <div class="modal-overlay hidden" id="imageLightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="closeLightboxBtn">&times;</span>
+            <img id="lightboxImg" src="" alt="Captured Intruder">
+            <div class="lightbox-caption" id="lightboxCaption">Ảnh chụp xâm nhập</div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast hidden" id="toast">Thông báo</div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
