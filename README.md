@@ -1,93 +1,337 @@
-# Hệ Thống Báo Động Đột Nhập Nhà Thông Minh (Smart Home Security System)
+<h2 align="center">
+<a href="https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin">
+🎓 Faculty of Information Technology (DaiNam University)
+</a>
+</h2>
 
-Hệ thống bảo vệ an ninh kết hợp cảm biến chuyển động PIR, cảm biến cửa từ, phần cứng xử lý Arduino/ESP8266 và Camera Laptop. Khi phát hiện đột nhập lúc hệ thống được kích hoạt chế độ an ninh (Armed), hệ thống lập tức hú còi, nháy đèn cảnh báo, đồng thời điều khiển Laptop chụp ảnh kẻ xâm nhập, lưu trữ, và gửi tin nhắn cảnh báo có đính kèm hình ảnh trực tiếp tới điện thoại của chủ nhà thông qua Telegram Bot.
+<h1 align="center">
+🏠 HỆ THỐNG BÁO ĐỘNG NHÀ THÔNG MINH
+</h1>
 
----
+<div align="center">
 
-## 🌟 Tính Năng Nổi Bật
-- **Giám Sát Thời Gian Thực (Real-time):** Dashboard Web hiển thị liên tục trạng thái cảm biến PIR (chuyển động) và Cảm biến cửa (đóng/mở).
-- **Phát Hiện & Chụp Ảnh Tức Thời:** Sử dụng luồng Webcam chạy nền giúp camera luôn ở trạng thái sẵn sàng để ghi hình ngay khi phát hiện đột nhập, không trễ thời gian khởi động camera.
-- **Cảnh Báo Telegram Tiện Lợi:** Gửi tin nhắn khẩn cấp kèm hình ảnh chất lượng cao tới điện thoại hoàn toàn miễn phí.
-- **Bảng Điều Khiển Cài Đặt Linh Hoạt:** Cho phép thay đổi cổng kết nối (COM Port), ID Camera, chế độ Giả lập, và cấu hình Token Telegram trực tiếp trên giao diện web mà không cần khởi động lại server.
-- **Chế Độ Giả Lập Thông Minh (Simulator):** Tích hợp sẵn bộ mô phỏng cảm biến trên giao diện để kiểm tra toàn bộ hoạt động chụp ảnh và gửi tin nhắn của Laptop ngay cả khi không có phần cứng kết nối.
+<img width="180" src="https://github.com/user-attachments/assets/77fe0fd1-2e55-4032-be3c-b1a705a1b574"/>
 
----
+<br><br>
 
-## 🔌 Sơ Đồ Đấu Nối Phần Cứng (Hardware Pins)
+![Arduino](https://img.shields.io/badge/Arduino-UNO-blue?style=for-the-badge&logo=arduino)
+![ESP8266](https://img.shields.io/badge/ESP8266-IoT-green?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-Flask-yellow?style=for-the-badge&logo=python)
+![Telegram](https://img.shields.io/badge/Telegram-Bot-blue?style=for-the-badge&logo=telegram)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)
 
-Hệ thống hoạt động tương thích với cả dòng **Arduino (Uno/Nano/Mega)** và **ESP8266 (NodeMCU)**:
-
-| Thiết bị phần cứng | Chân trên Arduino | Chân trên ESP8266 (NodeMCU) | Ghi chú |
-| :--- | :--- | :--- | :--- |
-| **Cảm biến PIR (OUT)** | Pin D2 | Pin D2 (GPIO4) | Mức cao (HIGH) = Có chuyển động |
-| **Cảm biến cửa từ (Pin A)**| Pin D3 | Pin D1 (GPIO5) | Chân còn lại nối GND (INPUT\_PULLUP) |
-| **Còi báo động (Buzzer +)**| Pin D4 | Pin D5 (GPIO14) | Chân (-) nối GND |
-| **Đèn LED cảnh báo (+)**  | Pin D5 | Pin D6 (GPIO12) | Cần trở hạn dòng 220 Ohm, chân (-) nối GND |
-
-> ⚠️ **Chú ý đối với cảm biến cửa từ:** Chân kết nối được khai báo là `INPUT_PULLUP` trong mã nguồn. Khi cửa đóng, hai cực nam châm hút nhau -> công tắc đóng -> pin nối GND (LOW). Khi cửa mở -> công tắc hở -> pin lên mức HIGH nhờ điện trở kéo lên bên trong.
+</div>
 
 ---
 
-## 🛠️ Hướng Dẫn Cài Đặt Phần Mềm
+# 📖 1. Giới thiệu đề tài
 
-### 1. Nạp Code Cho Arduino/ESP8266
-1. Mở phần mềm **Arduino IDE**.
-2. Copy toàn bộ mã nguồn trong file [arduino_alarm.ino](./arduino_alarm.ino).
-3. Kết nối Arduino/ESP8266 với máy tính, chọn đúng **Board** và **Port** trong menu *Tools*.
-4. Nhấn **Upload** để nạp code.
+**Hệ Thống Báo Động Nhà Thông Minh** là dự án ứng dụng công nghệ IoT nhằm giám sát và bảo vệ ngôi nhà trước các nguy cơ đột nhập trái phép.
 
-### 2. Cài Đặt Môi Trường Trên Laptop
-Yêu cầu Laptop đã cài đặt **Python 3.10+**.
+Hệ thống sử dụng cảm biến chuyển động PIR, cảm biến từ cửa, Arduino UNO và ESP8266 để phát hiện các sự kiện bất thường. Khi phát hiện đột nhập, hệ thống sẽ kích hoạt còi báo động, đèn cảnh báo và gửi thông báo đến người dùng thông qua Telegram Bot hoặc giao diện Web.
 
-Mở terminal tại thư mục dự án (`d:\btlnhan`) và thực hiện cài đặt các thư viện cần thiết:
+### 🎯 Mục tiêu đề tài
+
+* Xây dựng hệ thống báo động nhà thông minh chi phí thấp
+* Ứng dụng công nghệ IoT vào giám sát an ninh
+* Cảnh báo thời gian thực cho người dùng
+* Điều khiển và giám sát từ xa
+* Nâng cao kỹ năng lập trình nhúng và Web
+
+---
+
+# 🔍 2. Chức năng hệ thống
+
+* ✅ Phát hiện chuyển động bằng cảm biến PIR
+* ✅ Phát hiện mở cửa trái phép
+* ✅ Kích hoạt còi báo động tự động
+* ✅ Bật đèn LED cảnh báo
+* ✅ Gửi cảnh báo qua Telegram
+* ✅ Hiển thị trạng thái trên Web Dashboard
+* ✅ Điều khiển bật/tắt hệ thống từ xa
+* ✅ Lưu lịch sử cảnh báo
+
+---
+
+# ✨ 3. Tính năng nổi bật
+
+## 🟢 Giám sát an ninh
+
+* Theo dõi ngôi nhà 24/7
+* Phát hiện người lạ xâm nhập
+* Giám sát trạng thái cửa ra vào
+* Cảnh báo tức thời
+
+## 🔴 Hệ thống báo động
+
+* Buzzer phát âm thanh cảnh báo
+* LED nhấp nháy khi có sự cố
+* Cảnh báo theo thời gian thực
+* Dễ dàng mở rộng thêm thiết bị
+
+## 🟡 Điều khiển từ xa
+
+* Điều khiển qua Web
+* Điều khiển qua Telegram Bot
+* Theo dõi trạng thái mọi lúc mọi nơi
+* Nhận thông báo tức thời
+
+## 🔵 Quản lý dữ liệu
+
+* Lưu lịch sử cảnh báo
+* Quản lý dữ liệu tập trung
+* Hỗ trợ phân tích sự kiện
+* Dễ dàng nâng cấp hệ thống
+
+---
+
+# ⚙️ 4. Công nghệ sử dụng
+
+| Thành phần | Công nghệ sử dụng |
+|------------|------------------|
+| Vi điều khiển | Arduino UNO |
+| Kết nối IoT | ESP8266 |
+| Cảm biến | PIR Sensor, Magnetic Door Sensor |
+| Backend | Python Flask |
+| Frontend | HTML, CSS, JavaScript |
+| Thông báo | Telegram Bot API |
+| Database | SQLite |
+| Giao thức | HTTP, REST API |
+| Quản lý mã nguồn | GitHub |
+
+---
+
+# 📂 5. Cấu trúc dự án
+
+```bash
+baodongnhathongminh/
+│
+├── arduino/
+│   ├── smart_alarm.ino
+│
+├── server/
+│   ├── app.py
+│   ├── database.db
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│
+├── templates/
+│   ├── index.html
+│
+├── telegram/
+│   ├── bot.py
+│
+├── requirements.txt
+├── README.md
+```
+
+---
+
+# ▶️ 6. Cách cài đặt và chạy dự án
+
+## 1️⃣ Clone dự án
+
+```bash
+git clone https://github.com/tuancntt1603/baodongnhathongminh.git
+```
+
+```bash
+cd baodongnhathongminh
+```
+
+---
+
+## 2️⃣ Cài đặt thư viện
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Khởi Động Server Laptop
-Chạy lệnh sau để khởi động máy chủ Flask:
+---
+
+## 3️⃣ Nạp chương trình Arduino
+
+```text
+Mở Arduino IDE
+Chọn Board Arduino UNO
+Chọn cổng COM tương ứng
+Upload file smart_alarm.ino
+```
+
+---
+
+## 4️⃣ Chạy hệ thống
+
 ```bash
 python app.py
 ```
-Sau khi khởi động thành công, màn hình sẽ hiển thị:
-```
-* Running on http://127.0.0.1:5000
-```
-Mở trình duyệt web và truy cập vào địa chỉ **`http://localhost:5000`** để sử dụng phần mềm.
 
 ---
 
-## 🤖 Hướng Dẫn Cấu Hình Gửi Tin Nhắn Telegram Về Điện Thoại
+## 5️⃣ Truy cập giao diện
 
-Để nhận được tin nhắn và ảnh chụp đột nhập trên điện thoại, bạn cần tạo một Telegram Bot riêng:
-
-### Bước 1: Tạo Telegram Bot
-1. Trên điện thoại, mở ứng dụng Telegram và tìm kiếm bot **`@BotFather`** (có tích xanh chính chủ).
-2. Chat lệnh `/newbot` và gửi.
-3. Nhập tên hiển thị cho bot của bạn (ví dụ: `SafeHome Sec Bot`).
-4. Nhập username cho bot (phải kết thúc bằng chữ `bot`, ví dụ: `my_safehome_alarm_bot`).
-5. Sau khi hoàn thành, `@BotFather` sẽ gửi cho bạn một chuỗi **HTTP API Token** (Ví dụ: `123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ`). Hãy lưu lại chuỗi này.
-
-### Bước 2: Lấy Chat ID của Bạn
-1. Tìm kiếm bot **`@userinfobot`** trên Telegram.
-2. Nhấn nút **Start** hoặc gửi tin nhắn bất kỳ.
-3. Bot sẽ phản hồi lại thông tin cá nhân của bạn, dòng **`Id:`** chính là **Chat ID** của bạn (Một chuỗi số, ví dụ: `987654321`).
-4. Mở bot bạn vừa tạo ở Bước 1 và nhấn **Start** để kích hoạt cuộc trò chuyện với nó.
-
-### Bước 3: Điền Cấu Hình Vào Phần Mềm
-1. Trên giao diện Web Dashboard, nhấn vào biểu tượng **Bánh răng cài đặt** (Settings) ở góc trên bên phải.
-2. Nhập **Telegram Bot Token** và **Telegram Chat ID** vào form.
-3. Nhấn **Gửi Thử Tin Nhắn** (Test Telegram). Nếu điện thoại của bạn nhận được tin nhắn kiểm tra thì cấu hình đã hoàn toàn chính xác!
-4. Nhấn **Lưu Cài Đặt** để lưu trữ cấu hình.
+```text
+http://127.0.0.1:5000
+```
 
 ---
 
-## 🖥️ Cách Kiểm Tra Hệ Thống Với Chế Độ Giả Lập (Simulator Mode)
+# 🔌 7. Sơ đồ hoạt động hệ thống
 
-Nếu chưa lắp đặt phần cứng Arduino/ESP8266, bạn vẫn có thể kiểm tra mọi chức năng cảnh báo của Laptop:
-1. Mở cài đặt (icon Bánh răng), tích chọn **Chế độ giả lập (Không cần phần cứng)** và nhấn **Lưu Cài Đặt**.
-2. Trên màn hình Dashboard, nhấn nút **KÍCH HOẠT HỆ THỐNG** (Armed) để khởi chạy chế độ bảo vệ.
-3. Tại bảng **Bộ Giả Lập Thiết Bị**:
-   - Nhấp vào nút **🚶 Chuyển động (PIR)** hoặc **🚪 Mở cửa (Cửa từ)**.
-4. Hệ thống sẽ ngay lập tức chuyển sang trạng thái cảnh báo báo động (hú còi và đèn nhấp nháy trên màn hình), camera sẽ chụp một bức ảnh của bạn tại thời điểm đó, lưu vào mục Nhật ký và gửi ảnh về điện thoại của bạn qua Telegram.
-5. Để tắt báo động, nhấn **TẮT BÁO ĐỘNG / VÔ HIỆU HÓA**.
+```text
+Cảm biến PIR/Cửa
+        ↓
+   Arduino UNO
+        ↓
+      ESP8266
+        ↓
+      Server
+        ↓
+ Web Dashboard
+        ↓
+ Telegram Bot
+        ↓
+     Người dùng
+```
+
+---
+
+# 🧠 8. Thiết bị sử dụng
+
+### Arduino UNO
+
+* Điều khiển trung tâm của hệ thống
+* Thu thập dữ liệu cảm biến
+* Điều khiển còi và LED
+
+### ESP8266
+
+* Kết nối WiFi
+* Truyền dữ liệu lên Server
+* Nhận lệnh điều khiển
+
+### PIR Sensor
+
+* Phát hiện chuyển động
+* Giám sát khu vực cần bảo vệ
+
+### Magnetic Door Sensor
+
+* Phát hiện trạng thái đóng/mở cửa
+* Cảnh báo khi có xâm nhập
+
+### Buzzer
+
+* Phát âm thanh cảnh báo
+
+### LED
+
+* Hiển thị trạng thái hệ thống
+
+---
+
+# 📲 9. Chức năng Telegram Bot
+
+Telegram Bot hỗ trợ:
+
+* Nhận cảnh báo tức thời
+* Kiểm tra trạng thái hệ thống
+* Điều khiển từ xa
+* Theo dõi lịch sử cảnh báo
+
+Ví dụ:
+
+```text
+🚨 CẢNH BÁO ĐỘT NHẬP
+
+⏰ Thời gian: 20:30:15
+🚪 Cửa chính bị mở
+📍 Vị trí: Phòng khách
+```
+---
+
+# 📸 11. Hình ảnh Demo
+
+## 🖥️ Giao diện Web Dashboard
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/0feb4f03-7f34-4797-ba01-10f43b0fabb8" width="800">
+</p>
+
+<p align="center">
+<i>Hình 1. Giao diện giám sát hệ thống báo động nhà thông minh</i>
+</p>
+
+---
+
+## Cài đặt hệ thống
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/0deb9562-69ec-4e31-a964-fc1091ee2d21" width="800">
+</p>
+
+<p align="center">
+<i>Hình 2. Hình ảnh cài đặt hệ thôngs</i>
+</p>
+
+---
+
+## 📲 Thông báo Telegram
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/7ebbf6a0-cbab-4154-9475-a5df27e01370" width="400">
+</p>
+
+<p align="center">
+<i>Hình 3. Tin nhắn cảnh báo gửi đến Telegram</i>
+</p>
+
+---
+
+## 🔌 Mô hình phần cứng
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/561930b4-787f-4197-b051-37b6092bf363" width="700">
+</p>
+
+<p align="center">
+<i>Hình 4. Arduino UNO, ESP8266, cảm biến PIR, cảm biến cửa, LED và Buzzer</i>
+</p>
+
+---
+
+---
+
+# 🚀 10. Hướng phát triển
+
+* Tích hợp ESP32-CAM
+* Chụp ảnh người đột nhập
+* Nhận diện khuôn mặt bằng AI
+* Gửi hình ảnh qua Telegram
+* Điều khiển bằng ứng dụng Mobile
+* Lưu dữ liệu trên Cloud
+* Tích hợp Firebase
+* Kết nối nhiều cảm biến hơn
+
+---
+
+# 👨‍💻 11. Thông tin sinh viên
+
+* **Họ và tên:** Bùi Anh Tuấn
+* **Lớp:** CNTT 16-03
+* **Khoa:** Công nghệ Thông tin
+* **Trường:** Đại học Đại Nam
+
+---
+
+# 📌 12. Kết luận
+
+Đề tài **Hệ Thống Báo Động Nhà Thông Minh** giúp sinh viên tiếp cận các công nghệ IoT, Arduino, ESP8266, Web Server và Telegram Bot trong việc xây dựng hệ thống giám sát an ninh thông minh.
+
+Dự án có tính ứng dụng thực tế cao, dễ triển khai và có khả năng mở rộng để phát triển thành hệ thống Smart Home hoàn chỉnh trong tương lai.
+
+---
+
+<div align="center">
