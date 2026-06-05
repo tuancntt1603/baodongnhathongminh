@@ -1,5 +1,5 @@
 {
-    "com_port": "AUTO",
+    "com_port": "COM3",
     "telegram_token": "8924355880:AAF6H3bIpJJv7-qC0N9GBWj21Y_IkSqMLGA",
     "telegram_chat_id": "7666392148",
     "webcam_id": 0,

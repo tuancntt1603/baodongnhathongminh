@@ -41,6 +41,10 @@
   #define LED_PIN 5     // Arduino Pin 5
 #endif
 
+// Buzzer Logic (Change these if your buzzer is Active-LOW or Active-HIGH)
+#define BUZZER_ON HIGH
+#define BUZZER_OFF LOW
+
 // System State
 bool isArmed = false;
 bool isAlarmTriggered = false;
@@ -68,13 +72,13 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
 
   // ---- TEST CÒI BUZZER KHI VỪA KHỞI ĐỘNG ----
-  digitalWrite(BUZZER_PIN, HIGH);
-  delay(500); // Kêu 0.5 giây
-  digitalWrite(BUZZER_PIN, LOW);
+  // digitalWrite(BUZZER_PIN, HIGH);
+  // delay(500); // Kêu 0.5 giây
+  // digitalWrite(BUZZER_PIN, LOW);
   // -------------------------------------------
 
   // Turn off alert indicators on startup
-  digitalWrite(BUZZER_PIN, LOW);
+  digitalWrite(BUZZER_PIN, BUZZER_OFF);
   digitalWrite(LED_PIN, LOW);
 
   // Notify laptop that Arduino is ready
@@ -95,7 +99,7 @@ void loop() {
       isAlarmTriggered = false;
       triggerSource = "";
       // Turn off buzzer and LED immediately
-      digitalWrite(BUZZER_PIN, LOW);
+      digitalWrite(BUZZER_PIN, BUZZER_OFF);
       digitalWrite(LED_PIN, LOW);
       sendStatus();
     } else if (cmd == "STATUS") {
@@ -104,17 +108,40 @@ void loop() {
   }
 
   // 2. Read Sensors
-  bool pirState = digitalRead(PIR_PIN) == HIGH; // HIGH = motion detected
   // DOOR_PIN is INPUT_PULLUP: LOW = closed, HIGH = open
   bool doorState = digitalRead(DOOR_PIN) == HIGH;
+  
+  // YÊU CẦU MỚI: Chỉ quét cảm biến chuyển động khi cửa đang mở.
+  // Nếu cửa đóng, mặc định coi như không có chuyển động.
+  bool pirState = false;
+  if (doorState == true) {
+    pirState = digitalRead(PIR_PIN) == HIGH; // HIGH = motion detected
+  }
+
+  // TÍNH NĂNG AUTO-ARM (Tự động kích hoạt cách 3)
+  // Phải đọc trực tiếp cảm biến PIR phần cứng để biết thực sự có người trong phòng hay không
+  bool realPir = digitalRead(PIR_PIN) == HIGH;
+  static unsigned long lastActivityTime = millis();
+  
+  // Nếu có người múa trước cảm biến hoặc cửa đang mở -> Reset bộ đếm thời gian
+  if (doorState || realPir) {
+    lastActivityTime = millis();
+  }
+
+  // Nếu đang Tắt (isArmed = false) VÀ đã 15 giây (15000ms) trôi qua không có chuyển động/mở cửa
+  // -> TỰ ĐỘNG BẬT! (Để test cho nhanh mình để 15s. Sau khi test ok bạn có thể đổi thành 300000 cho 5 phút)
+  if (!isArmed && (millis() - lastActivityTime >= 15000)) {
+    isArmed = true;
+    sendStatus(); // Gửi trạng thái mới lên Web
+  }
 
   // 3. Alarm Trigger Logic
   if (isArmed) {
     static unsigned long lastTriggerTime = 0;
     unsigned long currentMillis = millis();
     
-    // Nếu có chuyển động hoặc cửa mở, cứ mỗi 3 giây sẽ gửi lệnh chụp ảnh 1 lần
-    if ((pirState || doorState) && (currentMillis - lastTriggerTime >= 3000)) {
+    // Nếu có chuyển động VÀ cửa đang mở, cứ mỗi 3 giây sẽ gửi lệnh chụp ảnh 1 lần
+    if ((pirState && doorState) && (currentMillis - lastTriggerTime >= 3000)) {
       isAlarmTriggered = true;
       lastTriggerTime = currentMillis;
       
@@ -136,16 +163,16 @@ void loop() {
       alarmPatternState = !alarmPatternState;
       
       if (alarmPatternState) {
-        digitalWrite(BUZZER_PIN, HIGH);
+        digitalWrite(BUZZER_PIN, BUZZER_ON);
         digitalWrite(LED_PIN, HIGH);
       } else {
-        digitalWrite(BUZZER_PIN, LOW);
+        digitalWrite(BUZZER_PIN, BUZZER_OFF);
         digitalWrite(LED_PIN, LOW);
       }
     }
   } else {
     // If not triggered, ensure alarm outputs are off
-    digitalWrite(BUZZER_PIN, LOW);
+    digitalWrite(BUZZER_PIN, BUZZER_OFF);
     digitalWrite(LED_PIN, LOW);
   }
 
